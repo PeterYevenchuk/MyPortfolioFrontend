@@ -1,0 +1,158 @@
+body, h1, h2, h3, h4, p {
+    margin: 5px;
+    padding: 0;
+}
+
+h1 {
+    font-size: 28px;
+}
+  
+h2 {
+    font-size: 20px;
+}
+  
+p {
+    font-size: 18px;
+}
+
+body {
+    background-color: #f8f8f8;
+    font-family: 'Arial', sans-serif;
+}
+
+.Head {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.UserGeneralInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Style the user photo and information */
+.UserPhoto {
+    flex-basis: 30%;
+    left: auto;
+}
+
+.UserPhoto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Make the photo slightly rounded */
+}
+
+.GeneralInfo {
+    flex-basis: 65%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.LinksContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+/* Style the experiences section */
+.Experiences {
+    flex-basis: 65%;
+    margin-top: 20px;
+}
+
+.ExperienceItem {
+    margin-bottom: 20px;
+}
+
+/* Style the skills section */
+.Skills {
+    flex-basis: 100%;
+    margin-top: 20px;
+}
+
+/* Style the skill items */
+.SkillItem {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    background-color: #ececec;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Style the projects section */
+.Projects {
+    flex-basis: 65%;
+    margin-top: 20px;
+}
+
+.ProjectItem {
+    margin-bottom: 20px;
+}
+
+.ProjectPhoto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Make the project photo slightly rounded */
+}
+
+/* Style the educations section */
+.Educations {
+    flex-basis: 65%;
+    margin-top: 20px;
+}
+
+.EducationItem {
+    margin-bottom: 20px;
+}
+
+/* Style the certificates section */
+.Certificates {
+    flex-basis: 100%;
+    margin-top: 20px;
+}
+
+.CertificateItem {
+    margin-bottom: 20px;
+}
+
+.CertificatePdf {
+    width: 50%;
+    max-width: 800px;
+    height: auto;
+    margin: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.LoadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .LoadingContainer p {
+    font-size: 24px;
+    color: #94c3e9;
+  }
+
+.ErrorContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .ErrorContainer p {
+    font-size: 20px;
+    color: #721c24;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+  }
