@@ -43,26 +43,41 @@ function HomePage () {
                         <div className='UserPhoto'>
                             {data.photoMeUrl && <img src={`data:image/;base64,${data.photoMeUrl}`} alt="UserPhotoUrl" />}
                         </div>
-                        <div className='GeneralInfo'>
-                            <h1>{data.name} {data.surname}</h1>
-                            <h2>{data.position}</h2>
-                            <p>{data.location}, {data.age} years old</p>
-                            <div className="Links">
-                                <div className="LinksContainer">
-                                {data.links &&
-                                    data.links.map(link => (
-                                        <div key={link.socialLinkID} className="LinkItem">
-                                            <h4>
-                                                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                                                    {link.name}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                    ))}
+                        <div className='GeneralInfoWithSkills'>
+                            <div className='GeneralInfo'>
+                                <h1>{data.name} {data.surname}</h1>
+                                <h2>{data.position}</h2>
+                                <p>{data.location}, {data.age} years old.</p>
+                                <div className="Links">
+                                    <div className="LinksContainer">
+                                        {data.links &&
+                                            data.links.map(link => (
+                                                <div key={link.socialLinkID} className="LinkItem">
+                                                    <h4>
+                                                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                                            {link.name}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            ))}
+                                    </div>
+                                    <div className='Description'>
+                                        <p>{data.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="Skills">
+                            <h2>Skills</h2>
+                            <div className="SkillsContainer">
+                                    {data.skills &&
+                                        data.skills.map(skill => (
+                                            <div key={skill.skillID} className="SkillItem">
+                                                <h3>{skill.mySkill}</h3>
+                                            </div>
+                                        ))}
+                                </div>
                             </div>
                         </div>
-                        <p>{data.description}</p>
-                    </div>
                     </div>
                     <div className="Experiences">
                         <h2>Experiences</h2>
@@ -78,17 +93,6 @@ function HomePage () {
                                     <p>{experience.description}</p>
                                 </div>
                             ))}
-                    </div>
-                    <div className="Skills">
-                        <h2>Skills</h2>
-                        <div className="SkillsContainer">
-                            {data.skills &&
-                                data.skills.map(skill => (
-                                    <div key={skill.skillID} className="SkillItem">
-                                        <h3>{skill.mySkill}</h3>
-                                    </div>
-                                ))}
-                        </div>
                     </div>
                     <div className="Projects">
                         <h2>Projects</h2>

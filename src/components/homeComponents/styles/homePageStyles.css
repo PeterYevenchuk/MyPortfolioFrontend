@@ -8,15 +8,19 @@ h1 {
 }
   
 h2 {
+    font-size: 24px;
+}
+
+h3 {
     font-size: 20px;
 }
   
 p {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: #FFFFFF;
     font-family: 'Arial', sans-serif;
 }
 
@@ -29,27 +33,35 @@ body {
 .UserGeneralInfo {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Style the user photo and information */
-.UserPhoto {
-    flex-basis: 30%;
-    left: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @media (max-width: 600px) 
+    {
+        flex-wrap: wrap;
+    }
 }
 
 .UserPhoto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* Make the photo slightly rounded */
+    max-height: 500px;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.GeneralInfoWithSkills {
+    display: flex;
+    flex-direction: column;
 }
 
 .GeneralInfo {
-    flex-basis: 65%;
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
 }
 
 .LinksContainer {
@@ -58,6 +70,22 @@ body {
     align-items: flex-start;
 }
 
+.Skills {
+    margin-top: 10px;
+}
+
+.SkillItem {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    background-color: #ececec;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(145, 145, 145, 0.1);
+}
+
+
+/*...*/
 /* Style the experiences section */
 .Experiences {
     flex-basis: 65%;
@@ -69,20 +97,10 @@ body {
 }
 
 /* Style the skills section */
-.Skills {
-    flex-basis: 100%;
-    margin-top: 20px;
-}
+
 
 /* Style the skill items */
-.SkillItem {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    display: inline-block;
-    background-color: #ececec;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
+
 
 /* Style the projects section */
 .Projects {
@@ -128,6 +146,8 @@ body {
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/*...*/
 
 .LoadingContainer {
     display: flex;
