@@ -20,7 +20,7 @@ p {
 }
 
 body {
-    background-color: #FFFFFF;
+    background-color: #2d445b;
     font-family: 'Arial', sans-serif;
 }
 
@@ -41,7 +41,7 @@ body {
     }
 }
 
-.UserPhoto img {
+.UserGeneralInfo img {
     max-height: 500px;
     max-width: 400px;
     border-radius: 10px;
@@ -55,13 +55,13 @@ body {
 }
 
 .GeneralInfo {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ccc;
+    display: inline-block;
+    border: 1px solid #000000;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f5f5f5;
+    background-color: #899db9;
+    margin-bottom: 20px;
 }
 
 .LinksContainer {
@@ -70,84 +70,93 @@ body {
     align-items: flex-start;
 }
 
-.Skills {
-    margin-top: 10px;
+.SkillsContainer {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .SkillItem {
     margin-right: 10px;
     margin-bottom: 10px;
-    display: inline-block;
-    background-color: #ececec;
+    background-color: #899db9;
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(145, 145, 145, 0.1);
 }
 
-
-/*...*/
-/* Style the experiences section */
 .Experiences {
-    flex-basis: 65%;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .ExperienceItem {
+    display: inline-block;
     margin-bottom: 20px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #899db9;
 }
 
-/* Style the skills section */
-
-
-/* Style the skill items */
-
-
-/* Style the projects section */
-.Projects {
-    flex-basis: 65%;
-    margin-top: 20px;
+.ProjectInfo {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #899db9;
 }
 
 .ProjectItem {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .ProjectPhoto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* Make the project photo slightly rounded */
+    max-height: 350px;
+    max-width: 250px;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the educations section */
 .Educations {
-    flex-basis: 65%;
     margin-top: 20px;
-}
-
-.EducationItem {
     margin-bottom: 20px;
 }
 
-/* Style the certificates section */
+.EducationsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.EducationItem {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #899db9;
+}
+
 .Certificates {
-    flex-basis: 100%;
     margin-top: 20px;
 }
 
 .CertificateItem {
     margin-bottom: 20px;
+    border: 1px solid #000000;
+    background-color: #899db9;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.CertificatePdf {
-    width: 50%;
-    max-width: 800px;
-    height: auto;
-    margin: auto;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/*...*/
 
 .LoadingContainer {
     display: flex;
@@ -158,7 +167,7 @@ body {
   
   .LoadingContainer p {
     font-size: 24px;
-    color: #94c3e9;
+    color: #000000;
   }
 
 .ErrorContainer {

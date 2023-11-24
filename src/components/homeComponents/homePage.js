@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../homeComponents/styles/homePageStyles.css';
 import axios from 'axios';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import { pdfjs } from 'react-pdf';
-import '@react-pdf-viewer/core/lib/styles/index.css';
 
 function HomePage () {
     const [data, setData] = useState([]);
@@ -40,9 +37,7 @@ function HomePage () {
             {!loading && !error && (
                 <div className='User'>
                     <div className='UserGeneralInfo'> 
-                        <div className='UserPhoto'>
-                            {data.photoMeUrl && <img src={`data:image/;base64,${data.photoMeUrl}`} alt="UserPhotoUrl" />}
-                        </div>
+                    {data.photoMeUrl && <img src={`data:image/;base64,${data.photoMeUrl}`} alt="UserPhotoUrl" />}
                         <div className='GeneralInfoWithSkills'>
                             <div className='GeneralInfo'>
                                 <h1>{data.name} {data.surname}</h1>
@@ -80,7 +75,7 @@ function HomePage () {
                         </div>
                     </div>
                     <div className="Experiences">
-                        <h2>Experiences</h2>
+                        <h1>Experiences</h1>
                         {data.experiences &&
                             data.experiences
                             .slice()
@@ -94,8 +89,25 @@ function HomePage () {
                                 </div>
                             ))}
                     </div>
+                    <div className="Educations">
+                        <h1>Educations</h1>
+                        <div className='EducationsContainer'>
+                            {data.educations &&
+                                data.educations
+                                .slice()
+                                .reverse()
+                                .map(educations => (
+                                    <div key={educations.educationID} className="EducationItem">
+                                        <h3>{educations.rang} at {educations.university}</h3>
+                                        <p>{educations.dateStart} - {educations.dateFinish ? educations.dateFinish : 'Present'}</p>
+                                        <p>{educations.speciality}</p>
+                                        <p>{educations.description}</p>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
                     <div className="Projects">
-                        <h2>Projects</h2>
+                        <h1>Projects</h1>
                         {data.projects &&
                             data.projects
                             .slice()
@@ -105,55 +117,36 @@ function HomePage () {
                                     <div className='ProjectPhoto'>
                                         <img src={`data:image/;base64,${projects.photoProjectUrl}`} alt="ProjectPhotoUrl" />
                                     </div>
-                                    <h3>{projects.name}</h3>
-                                    <p>{projects.description}</p>
-                                    <a href={projects.gitHubUrl} target="_blank" rel="noopener noreferrer">
-                                        {projects.gitHubUrl}
-                                    </a>
-                                </div>
-                            ))}
-                    </div>
-                    <div className="Educations">
-                        <h2>Educations</h2>
-                        {data.educations &&
-                            data.educations
-                            .slice()
-                            .reverse()
-                            .map(educations => (
-                                <div key={educations.educationID} className="EducationItem">
-                                    <h3>{educations.rang} at {educations.university}</h3>
-                                    <p>{educations.dateStart} - {educations.dateFinish ? educations.dateFinish : 'Present'}</p>
-                                    <p>{educations.speciality}</p>
-                                    <p>{educations.description}</p>
+                                    <div className='ProjectInfo'>
+                                        <h3>{projects.name}</h3>
+                                        <h4>
+                                            <a href={projects.gitHubUrl} target="_blank" rel="noopener noreferrer">
+                                                GitHub
+                                            </a>
+                                        </h4>
+                                        <p>{projects.description}</p>
+                                    </div>
                                 </div>
                             ))}
                     </div>
                     <div className="Certificates">
-                        <h2>Certificates</h2>
-                        {data.certificates &&
-                            data.certificates
-                            .slice()
-                            .reverse()
-                            .map((certificate) => (
-                                <div key={certificate.certificateID} className="CertificateItem">
-                                    <CertificateViewer pdfUrl={`data:application/pdf;base64,${certificate.certificatePdf}`} />
-                                </div>
-                            ))}
+                        <h1>Certificates</h1>
+                        <div className="CertificatesGeneral">
+                            {data.certificates &&
+                                data.certificates
+                                .slice()
+                                .reverse()
+                                .map((certificate) => (
+                                    <div key={certificate.certificateID} className="CertificateItem">
+                                        <iframe title="PDF Viewer" src={`data:application/pdf;base64,${certificate.certificatePdf}`} style={{ width: '100%', height: '100%' }} />
+                                    </div>
+                                ))}
+                        </div>
                     </div>
                 </div>
             )}
         </div>
     );
 }    
-
-function CertificateViewer({ pdfUrl }) {
-    return (
-        <div className="CertificatePdf">
-            <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`}>
-                <Viewer fileUrl={pdfUrl} />
-            </Worker>
-        </div>
-    );
-}
 
 export default HomePage;
