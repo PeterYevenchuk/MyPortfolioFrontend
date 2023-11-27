@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, p {
+h1, h2, h3, h4, p {
     margin: 5px;
     padding: 0;
 }
@@ -15,18 +15,19 @@ h3 {
     font-size: 20px;
 }
   
-p {
+p, a {
     font-size: 20px;
-}
-
-body {
-    background-color: #2d445b;
-    font-family: 'Arial', sans-serif;
+    color: #9b9d9e;
 }
 
 .Head {
+    background-color: #161d24;
+}  
+
+.Page {
     max-width: 80%;
     margin: 0 auto;
+    margin-top: 50px;
     padding: 20px;
 }
 
@@ -46,6 +47,7 @@ body {
     max-width: 400px;
     border-radius: 10px;
     margin-right: 20px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -60,7 +62,8 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #899db9;
+    background-color: #212529;
+    color: aliceblue;
     margin-bottom: 20px;
 }
 
@@ -75,18 +78,24 @@ body {
     flex-wrap: wrap;
 }
 
+.Skills {
+    color: aliceblue;
+}
+
 .SkillItem {
     margin-right: 10px;
     margin-bottom: 10px;
-    background-color: #899db9;
+    background-color: #212529;
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(145, 145, 145, 0.1);
+    color: aliceblue;
 }
 
 .Experiences {
     margin-top: 20px;
     margin-bottom: 20px;
+    color: aliceblue;
 }
 
 .ExperienceItem {
@@ -96,7 +105,8 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #899db9;
+    background-color: #212529;
+    color: aliceblue;
 }
 
 .ProjectInfo {
@@ -104,8 +114,18 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #899db9;
+    background-color: #212529;
+    color: aliceblue;
 }
+
+.Projects {
+    color: aliceblue;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+  
 
 .ProjectItem {
     margin-top: 20px;
@@ -121,11 +141,13 @@ body {
     border-radius: 10px;
     margin-right: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: aliceblue;
 }
 
 .Educations {
     margin-top: 20px;
     margin-bottom: 20px;
+    color: aliceblue;
 }
 
 .EducationsContainer {
@@ -142,21 +164,49 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #899db9;
+    background-color: #212529;
+    color: aliceblue;
 }
 
 .Certificates {
     margin-top: 20px;
+    color: aliceblue;
+}
+
+.CertificatesGeneral {
+    display: flex;
 }
 
 .CertificateItem {
+    position: relative;
     margin-bottom: 20px;
     border: 1px solid #000000;
-    background-color: #899db9;
+    background-color: #212529;
     padding: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.CertificateItem img {
+    max-width: 300px;
+    max-height: 300px;
+}
+  
+.CertificateNameOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0);
+    padding: 10px;
+    cursor: pointer;
+}
+  
+.CertificateNameOverlay h4 {
+    margin: 0;
+    color: #9b9d9e;
+}
 
 .LoadingContainer {
     display: flex;
@@ -167,7 +217,7 @@ body {
   
   .LoadingContainer p {
     font-size: 24px;
-    color: #000000;
+    color: #ffffff;
   }
 
 .ErrorContainer {
