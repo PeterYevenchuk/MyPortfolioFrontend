@@ -3,20 +3,31 @@ import '../homeComponents/styles/homePageStyles.css';
 import axios from 'axios';
 import NavBar from '../navBarComponents/navBar.js';
 import { Element } from 'react-scroll';
-import { useNavigate } from 'react-router-dom';
+import PdfModal from '../pdfViewerComponents/PdfModal.js';
 
 function HomePage () {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
 
-    const handleCertificateClick = (certificateName) => {
-        navigate(`/pdf-viewer/${certificateName}`);
+    const [isPdfModalOpen, setPdfModalOpen] = useState(false);
+    const [selectedCertificate, setSelectedCertificate] = useState(null);
+    const handleCertificateClick = (certificate) => {
+        if (certificate && certificate.certificatePdf) {
+          setSelectedCertificate(certificate.certificatePdf);
+          setPdfModalOpen(true);
+        } else {
+          console.error('Invalid certificate object:', certificate);
+        }
       };
+    const closePdfModal = () => {
+        setSelectedCertificate(null);
+        setPdfModalOpen(false);
+      };     
 
     useEffect(() => {
         setError(null);
+        setPdfModalOpen(false);
     
         axios.get(`http://localhost:5031/api/AboutMeInfo`)
             .then((response) => {
@@ -166,35 +177,36 @@ function HomePage () {
                                     )}
                             </div>
                         </Element>
-                        <Element name="certificates">
-                            <div className="Certificates">
+                        <Element name='certificates'>
+                            <div className='Certificates'>
                                 <h1>Certificates</h1>
                                 {data.certificates && data.certificates.length > 0 ? (
-                                    <div className="CertificatesGeneral">
-                                        {data.certificates
-                                            .slice()
-                                            .reverse()
-                                            .map((certificate) => (
-                                                <div key={certificate.certificateID} className="CertificateItem">
-                                                    <img src={require('../homeComponents/dokumentieren.png')} alt="CertificateImage" />
-                                                    <div className="CertificateNameOverlay" onClick={() => handleCertificateClick(certificate.certificatePdf)}>
-                                                        <h4>{certificate.name}</h4>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                    </div>
+                                <div className='CertificatesGeneral'>
+                                    {data.certificates
+                                    .slice()
+                                    .reverse()
+                                    .map((certificate) => (
+                                        <div key={certificate.certificateID} className='CertificateItem'>
+                                        <img src={require('../homeComponents/dokumentieren.png')} alt='CertificateImage' />
+                                        <div className='CertificateNameOverlay' onClick={() => handleCertificateClick(certificate)}>
+                                            <h4>{certificate.name}</h4>
+                                        </div>
+                                        </div>
+                                    ))}
+                                </div>
                                 ) : (
-                                    <div className="CertificatesGeneral">
-                                        <p>No certificates available.</p>
-                                    </div>
+                                <div className='CertificatesGeneral'>
+                                    <p>No certificates available.</p>
+                                </div>
                                 )}
                             </div>
                         </Element>
-                    </div>
+                    {isPdfModalOpen && <PdfModal base64String={selectedCertificate} onClose={closePdfModal} />}
                 </div>
-            )}
-        </div>
-    );
-}    
+            </div>
+        )}
+    </div>
+  );
+}
 
 export default HomePage;
